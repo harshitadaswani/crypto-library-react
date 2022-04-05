@@ -1,0 +1,19 @@
+.banner {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.banner-container {
+    height: 43rem;
+    width: 95%;
+}
+
+.play-container {
+    background-color: #3F63FF;
+    width: 13rem;
+    height: 10rem;
+    position: absolute;
+    top: 14rem;
+    left: 38rem;
+}
