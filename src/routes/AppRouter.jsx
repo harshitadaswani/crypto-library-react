@@ -1,6 +1,7 @@
 import React from "react";
 import { History, Home, Videos, Watchlist, Login, Signup, PlaylistListing } from "../pages";
 import { Routes, Route } from "react-router-dom";
+import { ErrorPage } from "../pages/ErrorPage";
 
 function AppRouter() {
     return (
@@ -15,11 +16,7 @@ function AppRouter() {
                 <Route path="/playlist-listing" element={<PlaylistListing />} />
                 <Route
                     path="*"
-                    element={
-                        <main className="App">
-                            <p>Error 404! Page not found.</p>
-                        </main>
-                    }
+                    element={<ErrorPage />}
                 />
             </Routes>
         </div>
