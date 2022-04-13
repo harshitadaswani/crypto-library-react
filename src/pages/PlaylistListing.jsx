@@ -1,16 +1,16 @@
 import React from 'react'
-import { IconCard } from '../components'
+import { HistoryCard } from '../components'
 
 export const PlaylistListing = () => {
     return (
-        <div>
-            <h2 className='p-l m-l'>My Playlist:</h2>
+        <>
+            <h2 className='h1-title'>My Playlist:</h2>
             <div className='flex flex-row flex-gap p-xs m-xs'>
-                <IconCard />
-                <IconCard />
-                <IconCard />
-                <IconCard />
+                <HistoryCard />
+                <HistoryCard />
+                <HistoryCard />
+                <HistoryCard />
             </div>
-        </div>
+        </>
     )
 }

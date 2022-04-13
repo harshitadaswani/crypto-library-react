@@ -5,3 +5,5 @@ export { History } from "./History";
 export { Login } from "./Login";
 export { Signup } from "./Signup";
 export { PlaylistListing } from "./PlaylistListing";
+export { Player } from "./Player";
+export { Liked } from "./Liked";

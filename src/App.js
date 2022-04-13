@@ -1,13 +1,16 @@
 import "./App.css";
 import React from "react";
 import AppRouter from "./routes/AppRouter";
-import { Navbar, Footer } from "./components";
+import { Navbar, Footer, Sidebar } from "./components";
 
 function App() {
   return (
-    <div>
+    <div className="p-s container">
       <Navbar />
-      <AppRouter />
+      <Sidebar />
+      <main className="p-none m-none">
+        <AppRouter />
+      </main>
       <Footer />
     </div>
   );

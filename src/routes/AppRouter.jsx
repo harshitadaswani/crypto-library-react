@@ -1,5 +1,5 @@
 import React from "react";
-import { History, Home, Videos, Watchlist, Login, Signup, PlaylistListing } from "../pages";
+import { History, Home, Videos, Watchlist, Login, Signup, PlaylistListing, Liked, Player } from "../pages";
 import { Routes, Route } from "react-router-dom";
 import { ErrorPage } from "../pages/ErrorPage";
 
@@ -14,6 +14,8 @@ function AppRouter() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/playlist-listing" element={<PlaylistListing />} />
+                <Route path="/liked" element={<Liked />} />
+                <Route path="/player" element={<Player />} />
                 <Route
                     path="*"
                     element={<ErrorPage />}

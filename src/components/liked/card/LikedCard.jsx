@@ -1,7 +1,7 @@
 import React from 'react';
-import { MdWatchLater } from "react-icons/md"
+import { AiFillHeart } from "react-icons/ai"
 
-export const WatchlistCard = () => {
+export const LikedCard = () => {
     return (
         <div className="card-basic-btns card-img">
             <img
@@ -9,7 +9,7 @@ export const WatchlistCard = () => {
                 src="https://picsum.photos/300/200"
                 alt="card image"
             />
-            <MdWatchLater size={35} className="wishlist-btn br-full color-red"></MdWatchLater>
+            <AiFillHeart size={35} className="wishlist-btn br-full color-red"></AiFillHeart>
             <h3 className="title-basic-btns m-xs">Our Changing Planet</h3>
             <h4 className="subtitle-basic-btns m-xs">By Kurt Wanger</h4>
             <button className="bid-btn br-s p-s m-xs fw-semibold txt-s">
