@@ -49,3 +49,11 @@
   font-size: 1.2rem;
   margin: 1rem;
 } */
+
+.p-none {
+  padding: 0;
+}
+
+.m-none {
+  margin: 0;
+}

@@ -4,16 +4,16 @@ import "./index.css"
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Banner />
-            <h2 className='p-l m-l'>Must Watch:</h2>
+            <h2 className='h1-title'>Must Watch:</h2>
             <div className='flex flex-row flex-gap p-xs m-xs'>
                 <Card />
                 <Card />
                 <Card />
                 <Card />
             </div>
-        </div>
+        </>
     )
 }
 
