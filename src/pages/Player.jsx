@@ -18,6 +18,13 @@ import {
 } from "../reducer/WatchLaterReducer";
 import { useHistory } from "../context/HistoryContext";
 import { ADD_TO_HISTORY } from "../reducer/HistoryReducer";
+import { Toaster } from "react-hot-toast";
+import {
+  addLikeToastFunction,
+  addWatchToastFunction,
+  removeLikeToastFunction,
+  removeWatchToastFunction,
+} from "../utils/ToastUtils";
 
 export const Player = () => {
   const { videoId } = useParams();
@@ -37,6 +44,7 @@ export const Player = () => {
 
   return (
     <>
+      <Toaster position="top-right" />
       <ReactPlayer
         url={videoUrl}
         width="100%"
@@ -53,17 +61,21 @@ export const Player = () => {
       <div className="flex flex-align-center flex-gap">
         <div
           className="p-m m-m flex flex-align-center txt-cursor"
-          onClick={() =>
-            likedState.liked.includes(videoToBeDisplayed)
-              ? likedDispatch({
-                  type: REMOVE_FROM_LIKE,
-                  payload: videoToBeDisplayed,
-                })
-              : likedDispatch({
-                  type: ADD_TO_LIKE,
-                  payload: videoToBeDisplayed,
-                })
-          }
+          onClick={() => {
+            if (likedState.liked.includes(videoToBeDisplayed)) {
+              likedDispatch({
+                type: REMOVE_FROM_LIKE,
+                payload: videoToBeDisplayed,
+              });
+              removeLikeToastFunction();
+            } else {
+              likedDispatch({
+                type: ADD_TO_LIKE,
+                payload: videoToBeDisplayed,
+              });
+              addLikeToastFunction();
+            }
+          }}
         >
           <AiFillLike
             size={30}
@@ -75,17 +87,21 @@ export const Player = () => {
         </div>
         <div
           className="p-m m-m flex flex-align-center txt-cursor"
-          onClick={() =>
-            watchState.watchLater.includes(videoToBeDisplayed)
-              ? watchDispatch({
-                  type: REMOVE_FROM_WATCHLIST,
-                  payload: videoToBeDisplayed,
-                })
-              : watchDispatch({
-                  type: ADD_TO_WATCHLIST,
-                  payload: videoToBeDisplayed,
-                })
-          }
+          onClick={() => {
+            if (watchState.watchLater.includes(videoToBeDisplayed)) {
+              watchDispatch({
+                type: REMOVE_FROM_WATCHLIST,
+                payload: videoToBeDisplayed,
+              });
+              removeWatchToastFunction();
+            } else {
+              watchDispatch({
+                type: ADD_TO_WATCHLIST,
+                payload: videoToBeDisplayed,
+              });
+              addWatchToastFunction();
+            }
+          }}
         >
           <MdWatchLater
             size={30}
