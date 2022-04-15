@@ -11,11 +11,17 @@ import { useParams } from "react-router-dom";
 import { useVideos } from "../context/VideoContext";
 import { ADD_TO_LIKE, REMOVE_FROM_LIKE } from "../reducer/LikeReducer";
 import { useLike } from "../context/LikeContext";
+import { useWatchLater } from "../context/WatchLaterContext";
+import {
+  ADD_TO_WATCHLIST,
+  REMOVE_FROM_WATCHLIST,
+} from "../reducer/WatchLaterReducer";
 
 export const Player = () => {
   const { videoId } = useParams();
   const { videos } = useVideos();
   const { likedState, likedDispatch } = useLike();
+  const { watchState, watchDispatch } = useWatchLater();
 
   const getVideoDetails = (id, videos) => {
     const videoDetails = videos.find((video) => id === video._id);
@@ -57,8 +63,28 @@ export const Player = () => {
           />
           <p> Like </p>
         </div>
-        <div className="p-m m-m flex flex-align-center txt-cursor">
-          <MdWatchLater size={30} />
+        <div
+          className="p-m m-m flex flex-align-center txt-cursor"
+          onClick={() =>
+            watchState.watchLater.includes(videoToBeDisplayed)
+              ? watchDispatch({
+                  type: REMOVE_FROM_WATCHLIST,
+                  payload: videoToBeDisplayed,
+                })
+              : watchDispatch({
+                  type: ADD_TO_WATCHLIST,
+                  payload: videoToBeDisplayed,
+                })
+          }
+        >
+          <MdWatchLater
+            size={30}
+            color={
+              watchState.watchLater.includes(videoToBeDisplayed)
+                ? "blue"
+                : "black"
+            }
+          />
           <p> Watch Later </p>
         </div>
         <div className="p-m m-m flex flex-align-center txt-cursor">

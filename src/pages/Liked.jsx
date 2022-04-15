@@ -5,7 +5,9 @@ export const Liked = () => {
   return (
     <>
       <h2 className="h1-title">Liked:</h2>
-      <LikedCard />
+      <div className="flex flex-row flex-gap p-xs m-xs">
+        <LikedCard />
+      </div>
     </>
   );
 };
