@@ -5,6 +5,7 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { VideoProvider } from "./context/VideoContext";
+import { LikeProvider } from "./context/LikeContext";
 
 // Call make Server
 makeServer();
@@ -13,7 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <VideoProvider>
-        <App />
+        <LikeProvider>
+          <App />
+        </LikeProvider>
       </VideoProvider>
     </BrowserRouter>
   </React.StrictMode>,
