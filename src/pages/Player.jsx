@@ -16,12 +16,15 @@ import {
   ADD_TO_WATCHLIST,
   REMOVE_FROM_WATCHLIST,
 } from "../reducer/WatchLaterReducer";
+import { useHistory } from "../context/HistoryContext";
+import { ADD_TO_HISTORY } from "../reducer/HistoryReducer";
 
 export const Player = () => {
   const { videoId } = useParams();
   const { videos } = useVideos();
   const { likedState, likedDispatch } = useLike();
   const { watchState, watchDispatch } = useWatchLater();
+  const { historyDispatch } = useHistory();
 
   const getVideoDetails = (id, videos) => {
     const videoDetails = videos.find((video) => id === video._id);
@@ -39,6 +42,13 @@ export const Player = () => {
         width="100%"
         height="100%"
         className="player-wrapper p-xs m-xs"
+        onStart={() =>
+          historyDispatch({
+            type: ADD_TO_HISTORY,
+            payload: videoToBeDisplayed,
+          })
+        }
+        controls
       />
       <div className="flex flex-align-center flex-gap">
         <div
