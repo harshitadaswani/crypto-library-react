@@ -59,7 +59,7 @@ export const PlaylistModal = ({ video }) => {
                               video._id,
                               item.id
                             )}
-                          />{" "}
+                          />
                           {item.name}
                         </label>
                       </div>
