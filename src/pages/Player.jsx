@@ -1,11 +1,7 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import { AiFillLike } from "react-icons/ai";
-import {
-  MdWatchLater,
-  MdPlaylistAdd,
-  MdPlaylistAddCheck,
-} from "react-icons/md";
+import { MdWatchLater, MdPlaylistAdd } from "react-icons/md";
 import "./index.css";
 import { useParams } from "react-router-dom";
 import { useVideos } from "../context/VideoContext";
@@ -25,10 +21,13 @@ import {
   removeLikeToastFunction,
   removeWatchToastFunction,
 } from "../utils/ToastUtils";
+import { PlaylistModal } from "../components";
+import { usePlaylist } from "../context/PlaylistContext";
 
 export const Player = () => {
   const { videoId } = useParams();
   const { videos } = useVideos();
+  const { setOpenModal } = usePlaylist();
   const { likedState, likedDispatch } = useLike();
   const { watchState, watchDispatch } = useWatchLater();
   const { historyDispatch } = useHistory();
@@ -113,13 +112,17 @@ export const Player = () => {
           />
           <p> Watch Later </p>
         </div>
-        <div className="p-m m-m flex flex-align-center txt-cursor">
+        <div
+          className="p-m m-m flex flex-align-center txt-cursor"
+          onClick={() => setOpenModal(true)}
+        >
           <MdPlaylistAdd size={30} />
           <p> Add to Playlist </p>
         </div>
       </div>
       <h1 className="player-title p-xs">{title}</h1>
       <div className="p-m m-m">{description}</div>
+      <PlaylistModal video={videoToBeDisplayed} />
     </>
   );
 };

@@ -14,3 +14,9 @@ export const removeWatchToastFunction = () =>
 
 export const removeHistoryToastFunction = () =>
   toast.success("Succesfully Removed from History Videos!");
+
+export const removePlaylistToastFunction = () =>
+  toast.success("Succesfully Removed from Playlist Videos!");
+
+export const addPlaylistToastFunction = () =>
+  toast.success("Succesfully Added to Playlist Videos!");
