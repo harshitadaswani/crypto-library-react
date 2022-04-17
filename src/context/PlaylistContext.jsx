@@ -16,7 +16,6 @@ export const PlaylistProvider = ({ children }) => {
     initialPlaylistValue
   );
 
-  console.log(playlistState);
   return (
     <PlaylistContext.Provider
       value={{ openModal, setOpenModal, playlistState, playlistDispatch }}

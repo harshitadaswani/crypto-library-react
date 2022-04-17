@@ -1,11 +1,7 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import { AiFillLike } from "react-icons/ai";
-import {
-  MdWatchLater,
-  MdPlaylistAdd,
-  MdPlaylistAddCheck,
-} from "react-icons/md";
+import { MdWatchLater, MdPlaylistAdd } from "react-icons/md";
 import "./index.css";
 import { useParams } from "react-router-dom";
 import { useVideos } from "../context/VideoContext";

@@ -71,9 +71,7 @@ export const PlaylistModal = ({ video }) => {
             <div className="modal-actions border-top p-xs m-xs">
               <div
                 className="modal-action txt-cursor"
-                onClick={() => {
-                  setOpenModal(false);
-                }}
+                onClick={() => setOpenModal(false)}
               >
                 Close
               </div>
