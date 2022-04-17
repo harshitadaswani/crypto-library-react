@@ -35,20 +35,20 @@ export const PlaylistModal = ({ video }) => {
   return (
     <>
       {openModal && (
-        <div className="dialog-wrapper" onClick={() => setOpenModal(false)}>
+        <div className="modal-wrapper" onClick={() => setOpenModal(false)}>
           <div
-            className="dialog-alert p-xs m-xs"
+            className="modal-alert p-xs m-xs"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="dialog-title border-bottom p-xs m-xs">
+            <h3 className="modal-title border-bottom p-xs m-xs">
               Add to Playlist
             </h3>
             <form action="">
-              <div className="dialog-action-items stacked p-xs m-xs">
+              <div className="modal-action-items stacked p-xs m-xs">
                 {playlistState.map((item) => {
                   return (
                     <>
-                      <div className="dialog-items" key={item.id}>
+                      <div className="modal-items" key={item.id}>
                         <label>
                           <input
                             type="checkbox"
@@ -68,9 +68,9 @@ export const PlaylistModal = ({ video }) => {
                 })}
               </div>
             </form>
-            <div className="dialog-actions border-top p-xs m-xs">
+            <div className="modal-actions border-top p-xs m-xs">
               <div
-                className="dialog-action txt-cursor"
+                className="modal-action txt-cursor"
                 onClick={() => {
                   setOpenModal(false);
                 }}
@@ -79,7 +79,7 @@ export const PlaylistModal = ({ video }) => {
               </div>
               <Link
                 to="/playlist-listing"
-                className="dialog-action"
+                className="modal-action"
                 onClick={() => setOpenModal(false)}
               >
                 Continue

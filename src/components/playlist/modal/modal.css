@@ -1,4 +1,4 @@
-.dialog-alert {
+.modal-alert {
     padding: 1rem;
     width: 18rem;
     text-align: left;
@@ -10,12 +10,12 @@
     align-items: center;
 }
 
-.dialog-title {
+.modal-title {
     margin-bottom: 0;
 }
 
-.dialog-actions,
-.dialog-action-items {
+.modal-actions,
+.modal-action-items {
     padding-top: 1.5rem;
     display: flex;
     justify-content: flex-end;
@@ -24,7 +24,7 @@
     flex-wrap: wrap;
 }
 
-.dialog-action {
+.modal-action {
     text-decoration: none;
 }
 
@@ -33,12 +33,12 @@
     align-items: flex-end;
 }
 
-.dialog-items {
+.modal-items {
     font-size: 1.1rem;
     align-self: flex-start;
 }
 
-.dialog-wrapper {
+.modal-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
