@@ -4,6 +4,7 @@ export const initialHistory = {
 
 export const ADD_TO_HISTORY = "ADD_TO_WATCHLIST";
 export const REMOVE_FROM_HISTORY = "REMOVE_FROM_WATCHLIST";
+export const REMOVE_ALL = "REMOVE_ALL";
 
 export const HistoryReducer = (state, action) => {
   const { type, payload } = action;
@@ -21,6 +22,9 @@ export const HistoryReducer = (state, action) => {
         ...state,
         history: state.history.filter((item) => item.id !== payload.id),
       };
+    case REMOVE_ALL:
+      return state ? { history: [] } : state;
+
     default:
       return state;
   }

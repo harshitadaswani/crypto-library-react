@@ -20,3 +20,6 @@ export const removePlaylistToastFunction = () =>
 
 export const addPlaylistToastFunction = () =>
   toast.success("Succesfully Added to Playlist Videos!");
+
+export const emptyHistoryToastFunction = () =>
+  toast.error("History Videos are empty! Go watch some videos");
