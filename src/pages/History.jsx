@@ -18,7 +18,6 @@ export const History = () => {
           size={30}
           className="br-full txt-cursor"
           onClick={() => {
-            console.log(historyState);
             historyState.history.length !== 0
               ? removeHistoryToastFunction()
               : emptyHistoryToastFunction();

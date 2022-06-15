@@ -11,6 +11,7 @@ const PlaylistContext = createContext(defaultPlaylistValue);
 
 export const PlaylistProvider = ({ children }) => {
   const [openModal, setOpenModal] = useState(false);
+  const [openNewModal, setOpenNewModal] = useState(false);
   const [playlistState, playlistDispatch] = useReducer(
     PlaylistReducer,
     initialPlaylistValue
@@ -18,7 +19,14 @@ export const PlaylistProvider = ({ children }) => {
 
   return (
     <PlaylistContext.Provider
-      value={{ openModal, setOpenModal, playlistState, playlistDispatch }}
+      value={{
+        openModal,
+        setOpenModal,
+        openNewModal,
+        setOpenNewModal,
+        playlistState,
+        playlistDispatch,
+      }}
     >
       {children}
     </PlaylistContext.Provider>

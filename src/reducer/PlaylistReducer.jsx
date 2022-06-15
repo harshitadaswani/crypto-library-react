@@ -1,25 +1,14 @@
 import { v4 } from "uuid";
 
 export const initialPlaylistValue = [
-  {
-    id: v4(),
-    name: "Playlist 1",
-    videos: [],
-  },
-  {
-    id: v4(),
-    name: "Playlist 2",
-    videos: [],
-  },
-  {
-    id: v4(),
-    name: "Playlist 3",
-    videos: [],
-  },
+  { id: v4(), name: "Playlist 1", videos: [] },
+  { id: v4(), name: "Playlist 2", videos: [] },
+  { id: v4(), name: "Playlist 3", videos: [] },
 ];
-
 export const ADD_TO_PLAYLIST = "ADD_TO_PLAYLIST";
 export const REMOVE_FROM_PLAYLIST = "REMOVE_FROM_PLAYLIST";
+export const CREATE_PLAYLIST = "CREATE_PLAYLIST";
+export const DELETE_PLAYLIST = "DELETE_PLAYLIST";
 
 export const isVideoInPlaylist = (state, videoId, playlistId) =>
   state.some((playlist) =>
@@ -50,5 +39,14 @@ export const PlaylistReducer = (state, action) => {
             }
           : playlist
       );
+
+    case CREATE_PLAYLIST:
+      return [
+        ...state,
+        { id: v4(), name: payload.title, videos: [payload.video] },
+      ];
+
+    case DELETE_PLAYLIST:
+      return state.filter((item) => item.id !== payload.playlistId);
   }
 };
