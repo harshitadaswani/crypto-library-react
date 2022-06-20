@@ -3,9 +3,15 @@ import { ImBin } from "react-icons/im";
 import { useVideos } from "../../../context/VideoContext";
 import { Link } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import { removePlaylistToastFunction } from "../../../utils/ToastUtils";
+import {
+  removePlaylistToastFunction,
+  emptyPlaylistToastFunction,
+} from "../../../utils/ToastUtils";
 import { usePlaylist } from "../../../context/PlaylistContext";
-import { REMOVE_FROM_PLAYLIST } from "../../../reducer/PlaylistReducer";
+import {
+  REMOVE_FROM_PLAYLIST,
+  DELETE_PLAYLIST,
+} from "../../../reducer/PlaylistReducer";
 
 export const PlaylistCard = () => {
   const { loader } = useVideos();
@@ -16,14 +22,27 @@ export const PlaylistCard = () => {
       <Toaster position="top-right" />
 
       {loader && <div> Loading the products </div>}
-      {playlistState.length &&
+      {playlistState.length !== 0 ? (
         playlistState.map((playlist) => {
           const { id, name, videos } = playlist;
           return (
-            <>
-              <h2 className="p-m m-m" key={id}>
-                {name}
-              </h2>
+            <div key={id}>
+              <div className="p-xs m-xs flex flex-row flex-space-between">
+                <h2 className="h1-title">{name}</h2>
+                <ImBin
+                  size={30}
+                  className="br-full txt-cursor"
+                  onClick={() => {
+                    playlistState.length !== 0
+                      ? removePlaylistToastFunction()
+                      : emptyPlaylistToastFunction();
+                    playlistDispatch({
+                      type: DELETE_PLAYLIST,
+                      payload: { playlistId: id },
+                    });
+                  }}
+                />
+              </div>
               <div>
                 {videos.length !== 0 ? (
                   videos.map((video) => {
@@ -69,9 +88,12 @@ export const PlaylistCard = () => {
                   <div>Add some videos to the playlists</div>
                 )}
               </div>
-            </>
+            </div>
           );
-        })}
+        })
+      ) : (
+        <div className="txt-l fw-bold">Create a playlist</div>
+      )}
     </>
   );
 };

@@ -8,3 +8,4 @@ export { Sidebar } from "./shared/sidebar/Sidebar";
 export { LikedCard } from "./liked/card/LikedCard";
 export { PlaylistCard } from "./playlist/card/PlaylistCard";
 export { PlaylistModal } from "./playlist/modal/PlaylistModal";
+export { NewPlaylistModal } from "./playlist/modal/NewPlaylistModal";

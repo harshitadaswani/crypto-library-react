@@ -1,6 +1,6 @@
 .modal-alert {
     padding: 1rem;
-    width: 18rem;
+    width: 20rem;
     text-align: left;
     display: flex;
     flex-flow: column wrap;
@@ -37,6 +37,7 @@
 .modal-items {
     font-size: 1.1rem;
     align-self: flex-start;
+    padding-left: 1rem;
 }
 
 .modal-wrapper {

@@ -11,6 +11,7 @@ import {
   addPlaylistToastFunction,
   removePlaylistToastFunction,
 } from "../../../utils/ToastUtils";
+import { NewPlaylistModal } from "../../../components";
 
 export const PlaylistModal = ({ video }) => {
   const { openModal, setOpenModal, playlistState, playlistDispatch } =
@@ -45,10 +46,11 @@ export const PlaylistModal = ({ video }) => {
             </h3>
             <form action="">
               <div className="modal-action-items stacked p-xs m-xs">
+                <NewPlaylistModal video={video} />
                 {playlistState.map((item) => {
                   return (
-                    <>
-                      <div className="modal-items" key={item.id}>
+                    <div key={item.id}>
+                      <div className="modal-items">
                         <label>
                           <input
                             type="checkbox"
@@ -63,7 +65,7 @@ export const PlaylistModal = ({ video }) => {
                           {item.name}
                         </label>
                       </div>
-                    </>
+                    </div>
                   );
                 })}
               </div>
